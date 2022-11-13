@@ -177,6 +177,33 @@ const GameHeader = props => {
 
 /* GameHeader Component - Start */
 
+/* GameRules component - Start */
+
+const GameRules = () => (
+  <GameRulesContainer>
+    <Popup
+      modal
+      trigger={<GameRulesPopupTriggerButton>Rules</GameRulesPopupTriggerButton>}
+    >
+      {close => (
+        <GameRulesPopupContainer>
+          <GameRulesPopupCloseContainer>
+            <GameRulesPopupCloseButton onClick={() => close()}>
+              <RiCloseLine />
+            </GameRulesPopupCloseButton>
+          </GameRulesPopupCloseContainer>
+          <GameRulesPopupImg
+            src="https://assets.ccbp.in/frontend/react-js/rock-paper-scissor/rules-image.png"
+            alt="rules"
+          />
+        </GameRulesPopupContainer>
+      )}
+    </Popup>
+  </GameRulesContainer>
+)
+
+/* GameRules component - End */
+
 /* RockPaperScissors Component - Start */
 
 class RockPaperScissors extends Component {
