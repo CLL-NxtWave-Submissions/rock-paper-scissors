@@ -152,6 +152,47 @@ const GameRulesPopupImg = styled.img`
 
 /* For JSX in GameRules component - End */
 
+/* For JSX in GameBody component - Start */
+
+const GameBodyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+`
+
+/* For JSX in GameBody component - End */
+
+/* For JSX in GameView component - Start */
+
+const GameViewContainer = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding-left: 0;
+  width: 100%;
+`
+const GameChoiceContainer = styled.li`
+  width: 35%;
+  margin: 1rem;
+`
+const GameChoiceButton = styled.button`
+  border: none;
+  outline: none;
+  background: inherit;
+  cursor: pointer;
+`
+
+const GameChoiceButtonImg = styled.img`
+  width: 6rem;
+  height: 6rem;
+`
+
+/* For JSX in GameView component - End */
+
 /* Styled Components - End */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
