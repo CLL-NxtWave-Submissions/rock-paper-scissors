@@ -130,9 +130,16 @@ const GameRulesPopupCloseContainer = styled(GameRulesContainer)`
 const GameRulesPopupCloseButton = styled.button`
   border: none;
   outline: none;
-  background: inherit;
   cursor: pointer;
+  background: inherit;
   margin: 0;
+`
+
+const GameRulesPopupTriggerButton = styled(GameRulesPopupCloseButton)`
+  background-color: #ffffff;
+  color: #223a5f;
+  border-radius: 0.4rem;
+  padding: 1rem 1.5rem;
 `
 
 const GameRulesPopupImg = styled.img`
