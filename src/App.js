@@ -132,8 +132,8 @@ const GameRulesPopupCloseButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  background: inherit;
   margin: 0;
+  padding: 0.5rem;
 `
 
 const GameRulesPopupTriggerButton = styled(GameRulesPopupCloseButton)`
