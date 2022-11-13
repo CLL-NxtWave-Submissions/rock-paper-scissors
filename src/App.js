@@ -224,6 +224,7 @@ class RockPaperScissors extends Component {
     return (
       <RockPaperScissorsBgContainer>
         <GameHeader score={score} />
+        <GameRules />
       </RockPaperScissorsBgContainer>
     )
   }
