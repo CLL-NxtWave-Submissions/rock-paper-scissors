@@ -164,7 +164,7 @@ const GameBodyContainer = styled.div`
 
 /* For JSX in GameBody component - End */
 
-/* For JSX in GameView component - Start */
+/* For JSX in GameView, GameChoice components - Start */
 
 const GameViewContainer = styled.ul`
   display: flex;
@@ -191,7 +191,7 @@ const GameChoiceButtonImg = styled.img`
   height: 6rem;
 `
 
-/* For JSX in GameView component - End */
+/* For JSX in GameView, GameChoice components - End */
 
 /* Styled Components - End */
 /* ------------------------------------------- */
@@ -222,7 +222,64 @@ const GameHeader = props => {
 
 /* GameHeader Component - Start */
 
-/* GameRules component - Start */
+/* GameChoice Component - Start */
+
+const GameChoice = props => {
+  const {choiceData, onChoiceSelection} = props
+  const {id, imageUrl} = choiceData
+
+  const onChoiceClick = () => onChoiceSelection(id)
+
+  return (
+    <GameChoiceContainer>
+      <GameChoiceButton type="button" onClick={onChoiceClick}>
+        <GameChoiceButtonImg src={imageUrl} alt={id} />
+      </GameChoiceButton>
+    </GameChoiceContainer>
+  )
+}
+
+/* GameChoice Component - End */
+
+/* GameView Component - Start */
+
+const GameView = props => {
+  const {onGameChoice} = props
+
+  return (
+    <GameViewContainer>
+      {choicesList.map(choicesListItem => (
+        <GameChoice
+          key={choicesListItem.id}
+          choiceData={choicesListItem}
+          onChoiceSelection={onGameChoice}
+        />
+      ))}
+    </GameViewContainer>
+  )
+}
+
+/* GameView Component - End */
+
+/* GameBody Component - Start */
+
+const GameBody = props => {
+  const {gameMode, outcome, onGamerSelection} = props
+
+  return (
+    <GameBodyContainer>
+      {gameMode ? (
+        <GameView onGameChoice={onGamerSelection} />
+      ) : (
+        <p>{gameOutcomesData[outcome].message}</p>
+      )}
+    </GameBodyContainer>
+  )
+}
+
+/* GameBody Component - End */
+
+/* GameRules Component - Start */
 
 const GameRules = () => (
   <GameRulesContainer>
@@ -247,7 +304,7 @@ const GameRules = () => (
   </GameRulesContainer>
 )
 
-/* GameRules component - End */
+/* GameRules Component - End */
 
 /* RockPaperScissors Component - Start */
 
@@ -294,11 +351,16 @@ class RockPaperScissors extends Component {
   }
 
   render() {
-    const {score} = this.state
+    const {isNewGame, gameOutcome, score} = this.state
 
     return (
       <RockPaperScissorsBgContainer>
         <GameHeader score={score} />
+        <GameBody
+          gameMode={isNewGame}
+          outcome={gameOutcome}
+          onGamerSelection={this.onGamerChoiceSelection}
+        />
         <GameRules />
       </RockPaperScissorsBgContainer>
     )
