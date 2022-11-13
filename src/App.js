@@ -106,6 +106,41 @@ const ScoreText = styled.p`
 `
 /* For JSX in GameHeader component - End */
 
+/* For JSX in GameRules component - Start */
+
+const GameRulesContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+`
+
+const GameRulesPopupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+`
+
+const GameRulesPopupCloseContainer = styled(GameRulesContainer)`
+  height: auto;
+`
+
+const GameRulesPopupCloseButton = styled.button`
+  border: none;
+  outline: none;
+  background: inherit;
+  cursor: pointer;
+  margin: 0;
+`
+
+const GameRulesPopupImg = styled.img`
+  width: 90%;
+`
+
+/* For JSX in GameRules component - End */
+
 /* Styled Components - End */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
