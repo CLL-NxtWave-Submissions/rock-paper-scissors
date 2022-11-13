@@ -383,6 +383,20 @@ class RockPaperScissors extends Component {
     return currentGameOutcome
   }
 
+  getUpdatedScore = (currentScore, currentGameOutcome) => {
+    let updatedScore = 0
+
+    if (currentGameOutcome === 'won') {
+      updatedScore = currentScore + 1
+    } else if (currentGameOutcome === 'lost') {
+      updatedScore = currentScore - 1
+    } else if (currentGameOutcome === 'draw') {
+      updatedScore = currentScore
+    }
+
+    return updatedScore
+  }
+
   onGamerChoiceSelection = selectedGamerChoiceId => {
     const randomId = Math.floor((Math.random() * 100000) % choicesList.length)
     const generatedOpponentChoiceId = choicesList[randomId].id
@@ -392,10 +406,16 @@ class RockPaperScissors extends Component {
       generatedOpponentChoiceId,
     )
 
-    this.setState({
-      opponentRandomChoiceId: generatedOpponentChoiceId,
-      gameOutcome: currentGameOutcome,
-      isNewGame: false,
+    this.setState(previousGameState => {
+      const {score} = previousGameState
+      const updatedScore = this.getUpdatedScore(score, currentGameOutcome)
+
+      return {
+        opponentRandomChoiceId: generatedOpponentChoiceId,
+        gameOutcome: currentGameOutcome,
+        isNewGame: false,
+        score: updatedScore,
+      }
     })
   }
 
