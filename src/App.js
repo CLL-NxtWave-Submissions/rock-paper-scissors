@@ -48,7 +48,8 @@ const gameOutcomesData = {
 const RockPaperScissorsBgContainer = styled.div`
   background-color: #223a5f;
   display: flex;
-  flex-direction: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem;
   height: 100%;
