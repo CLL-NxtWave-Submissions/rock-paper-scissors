@@ -260,6 +260,39 @@ class RockPaperScissors extends Component {
     gameOutcome: gameOutcomesData['yet-to-play'].outcome,
   }
 
+  determineGameOutcome = (inputGamerChoiceId, opponentChoiceId) => {
+    let currentGameOutcome = gameOutcomesData['yet-to-play'].outcome
+    if (inputGamerChoiceId === opponentChoiceId) {
+      currentGameOutcome = 'draw'
+    } else if (
+      (inputGamerChoiceId === 'ROCK' && opponentChoiceId === 'SCISSORS') ||
+      (inputGamerChoiceId === 'SCISSORS' && opponentChoiceId === 'PAPER') ||
+      (inputGamerChoiceId === 'PAPER' && opponentChoiceId === 'ROCK')
+    ) {
+      currentGameOutcome = 'won'
+    } else {
+      currentGameOutcome = 'lost'
+    }
+
+    return currentGameOutcome
+  }
+
+  onGamerChoiceSelection = selectedGamerChoiceId => {
+    const randomId = Math.floor((Math.random() * 100000) % choicesList.length)
+    const generatedOpponentChoiceId = choicesList[randomId].id
+
+    const currentGameOutcome = this.determineGameOutcome(
+      selectedGamerChoiceId,
+      generatedOpponentChoiceId,
+    )
+
+    this.setState({
+      opponentRandomChoiceId: generatedOpponentChoiceId,
+      gameOutcome: currentGameOutcome,
+      isNewGame: false,
+    })
+  }
+
   render() {
     const {score} = this.state
 
