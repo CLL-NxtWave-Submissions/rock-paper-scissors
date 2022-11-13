@@ -140,6 +140,9 @@ const GameRulesPopupTriggerButton = styled(GameRulesPopupCloseButton)`
   color: #223a5f;
   border-radius: 0.4rem;
   padding: 1rem 1.5rem;
+  font-family: 'Bree Serif';
+  font-size: 1rem;
+  font-weight: 600;
 `
 
 const GameRulesPopupImg = styled.img`
