@@ -50,7 +50,7 @@ const RockPaperScissorsBgContainer = styled.div`
   display: flex;
   flex-direction: space-between;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 2rem;
   height: 100%;
   min-height: 100vh;
 `
@@ -63,12 +63,14 @@ const GameScoreHeaderContainer = styled.div`
   border-radius: 0.8rem;
   padding: 1rem 2rem;
   width: 100%;
+  height: 20vh;
 `
 
 const BrandContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  height: 100%;
 `
 
 const BrandText = styled.h1`
@@ -77,24 +79,30 @@ const BrandText = styled.h1`
   font-weight: 600;
   font-family: 'Bree Serif';
   text-align: left;
+  margin: 0;
+  margin-bottom: 0.5rem;
 `
 
 const ScoreContainer = styled(BrandContainer)`
   justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   border-radius: 0.8rem;
   padding: 1rem 2rem;
 `
 
 const ScoreContainerHeader = styled(BrandText)`
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
   color: #223a5f;
 `
 
 const ScoreText = styled.p`
   color: #223a5f;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
   font-family: 'Roboto';
+  margin: 0.5rem;
 `
 /* For JSX in GameHeader component - End */
 
