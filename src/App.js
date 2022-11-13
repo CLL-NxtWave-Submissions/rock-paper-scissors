@@ -54,6 +54,7 @@ const RockPaperScissorsBgContainer = styled.div`
   padding: 2rem;
   height: 100%;
   min-height: 100vh;
+  min-width: 350px;
 `
 /* For JSX in GameHeader component - Start */
 const GameScoreHeaderContainer = styled.div`
@@ -159,7 +160,34 @@ const GameBodyContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: 440px) {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    width: 90%;
+  }
+
+  @media (min-width: 700px) {
+    width: 80%;
+  }
+
+  @media (min-width: 800px) {
+    width: 70%;
+  }
+
+  @media (min-width: 950px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1110px) {
+    width: 50%;
+  }
 `
 
 /* For JSX in GameBody component - End */
@@ -168,27 +196,48 @@ const GameBodyContainer = styled.div`
 
 const GameViewContainer = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   list-style-type: none;
-  padding-left: 0;
   width: 100%;
+  margin: 0;
 `
 const GameChoiceContainer = styled.li`
-  width: 35%;
-  margin: 1rem;
+  width: 40%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const GameChoiceButton = styled.button`
   border: none;
   outline: none;
   background: inherit;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
 `
 
 const GameChoiceButtonImg = styled.img`
-  width: 6rem;
-  height: 6rem;
+  width: 7.5rem;
+  height: 7.5rem;
+
+  @media (min-width: 440) {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  @media (min-width: 475px) {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  @media (min-width: 550px) {
+    width: 12rem;
+    height: 12rem;
+  }
 `
 
 /* For JSX in GameView, GameChoice components - End */
