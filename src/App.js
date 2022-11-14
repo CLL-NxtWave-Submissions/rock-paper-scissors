@@ -242,6 +242,51 @@ const GameChoiceButtonImg = styled.img`
 
 /* For JSX in GameView, GameChoice components - End */
 
+/* For JSX in GameResultView component - Start */
+
+const GameResultViewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
+
+const GameResultPlayerChoicesContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+`
+
+const GameResultSinglePlayerChoiceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const GameResultSinglePlayerChoiceText = styled.p`
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 1.5rem;
+  font-weight: 600;
+`
+const GameResultSinglePlayerChoiceImg = styled(GameChoiceButtonImg)``
+
+const GameResultContentContainer = styled(GameResultViewContainer)``
+
+const GameResult = styled(GameResultSinglePlayerChoiceText)`
+  font-size: 2.5rem;
+`
+
+const PlayAgainButton = styled(GameRulesPopupTriggerButton)`
+  border-radius: 0.8rem;
+  padding: 0.5rem 3rem;
+`
+/* For JSX in GameResultView component - Start */
+
 /* Styled Components - End */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
@@ -310,17 +355,78 @@ const GameView = props => {
 
 /* GameView Component - End */
 
+/* GameResult Component - Start */
+
+const GameResultView = props => {
+  const {result, gamerChoiceImgUrl, opponentChoiceImgUrl} = props
+
+  return (
+    <GameResultViewContainer>
+      <GameResultPlayerChoicesContainer>
+        <GameResultSinglePlayerChoiceContainer>
+          <GameResultSinglePlayerChoiceText>
+            YOU
+          </GameResultSinglePlayerChoiceText>
+          <GameResultSinglePlayerChoiceImg
+            src={gamerChoiceImgUrl}
+            alt="your choice"
+          />
+        </GameResultSinglePlayerChoiceContainer>
+
+        <GameResultSinglePlayerChoiceContainer>
+          <GameResultSinglePlayerChoiceText>
+            OPPONENT
+          </GameResultSinglePlayerChoiceText>
+          <GameResultSinglePlayerChoiceImg
+            src={opponentChoiceImgUrl}
+            alt="opponent choice"
+          />
+        </GameResultSinglePlayerChoiceContainer>
+      </GameResultPlayerChoicesContainer>
+
+      <GameResultContentContainer>
+        <GameResult>{result}</GameResult>
+        <PlayAgainButton>Play Again</PlayAgainButton>
+      </GameResultContentContainer>
+    </GameResultViewContainer>
+  )
+}
+
+/* GameResult Component - End */
+
 /* GameBody Component - Start */
 
 const GameBody = props => {
-  const {gameMode, outcome, onGamerSelection} = props
+  const {
+    gamerChoice,
+    opponentChoice,
+    gameMode,
+    outcome,
+    onGamerSelection,
+  } = props
+
+  const getGameChoiceImgUrl = choiceIdToMatch => {
+    const matchingChoice = choicesList.find(
+      choicesListItem => choicesListItem.id === choiceIdToMatch,
+    )
+    const matchingChoiceImgUrl = matchingChoice.imageUrl
+
+    return matchingChoiceImgUrl
+  }
+
+  const gamerChoiceImgUrl = getGameChoiceImgUrl(gamerChoice)
+  const opponentChoiceImgUrl = getGameChoiceImgUrl(opponentChoice)
 
   return (
     <GameBodyContainer>
       {gameMode ? (
         <GameView onGameChoice={onGamerSelection} />
       ) : (
-        <p>{gameOutcomesData[outcome].message}</p>
+        <GameResultView
+          result={gameOutcomesData[outcome].message}
+          gamerChoiceImgUrl={gamerChoiceImgUrl}
+          opponentChoiceImgUrl={opponentChoiceImgUrl}
+        />
       )}
     </GameBodyContainer>
   )
@@ -420,12 +526,20 @@ class RockPaperScissors extends Component {
   }
 
   render() {
-    const {isNewGame, gameOutcome, score} = this.state
+    const {
+      gamerChoiceId,
+      opponentRandomChoiceId,
+      isNewGame,
+      gameOutcome,
+      score,
+    } = this.state
 
     return (
       <RockPaperScissorsBgContainer>
         <GameHeader score={score} />
         <GameBody
+          gamerChoice={gamerChoiceId}
+          opponentChoice={opponentRandomChoiceId}
           gameMode={isNewGame}
           outcome={gameOutcome}
           onGamerSelection={this.onGamerChoiceSelection}
