@@ -331,7 +331,11 @@ const GameChoice = props => {
 
   return (
     <GameChoiceContainer>
-      <GameChoiceButton type="button" onClick={onChoiceClick}>
+      <GameChoiceButton
+        data-testid={`${id.toLowerCase()}Button`}
+        type="button"
+        onClick={onChoiceClick}
+      >
         <GameChoiceButtonImg src={imageUrl} alt={id} />
       </GameChoiceButton>
     </GameChoiceContainer>
