@@ -526,6 +526,8 @@ class RockPaperScissors extends Component {
     })
   }
 
+  onPlayAgain = () => this.setState({isNewGame: true})
+
   render() {
     const {
       gamerChoiceId,
@@ -544,6 +546,7 @@ class RockPaperScissors extends Component {
           gameMode={isNewGame}
           outcome={gameOutcome}
           onGamerSelection={this.onGamerChoiceSelection}
+          onPlayAgain={this.onPlayAgain}
         />
         <GameRules />
       </RockPaperScissorsBgContainer>
