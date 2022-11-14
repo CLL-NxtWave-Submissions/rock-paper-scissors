@@ -272,18 +272,19 @@ const GameResultSinglePlayerChoiceText = styled.p`
   font-family: 'Roboto';
   font-size: 1.5rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 `
 const GameResultSinglePlayerChoiceImg = styled(GameChoiceButtonImg)``
 
 const GameResultContentContainer = styled(GameResultViewContainer)``
 
 const GameResult = styled(GameResultSinglePlayerChoiceText)`
-  font-size: 2.5rem;
+  font-size: 2rem;
 `
 
 const PlayAgainButton = styled(GameRulesPopupTriggerButton)`
   border-radius: 0.8rem;
-  padding: 0.5rem 3rem;
+  padding: 0.75rem 3.5rem;
 `
 /* For JSX in GameResultView component - Start */
 
