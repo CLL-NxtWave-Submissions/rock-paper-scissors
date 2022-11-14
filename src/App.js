@@ -409,7 +409,8 @@ const GameBody = props => {
     const matchingChoice = choicesList.find(
       choicesListItem => choicesListItem.id === choiceIdToMatch,
     )
-    const matchingChoiceImgUrl = matchingChoice.imageUrl
+    const matchingChoiceImgUrl =
+      matchingChoice === undefined ? '' : matchingChoice.imageUrl
 
     return matchingChoiceImgUrl
   }
