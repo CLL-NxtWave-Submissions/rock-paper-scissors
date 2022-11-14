@@ -306,13 +306,18 @@ const GameHeader = props => {
   return (
     <GameScoreHeaderContainer>
       <BrandContainer>
-        <BrandText>Rock</BrandText>
-        <BrandText>Paper</BrandText>
-        <BrandText>Scissors</BrandText>
+        <BrandText>
+          Rock
+          <br />
+          Paper
+          <br />
+          Scissors
+          <br />
+        </BrandText>
       </BrandContainer>
 
       <ScoreContainer>
-        <ScoreContainerHeader>Score</ScoreContainerHeader>
+        <ScoreContainerHeader as="p">Score</ScoreContainerHeader>
         <ScoreText>{score}</ScoreText>
       </ScoreContainer>
     </GameScoreHeaderContainer>
