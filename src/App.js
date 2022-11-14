@@ -403,6 +403,7 @@ const GameBody = props => {
     gameMode,
     outcome,
     onGamerSelection,
+    onPlayAgain,
   } = props
 
   const getGameChoiceImgUrl = choiceIdToMatch => {
@@ -427,6 +428,7 @@ const GameBody = props => {
           result={gameOutcomesData[outcome].message}
           gamerChoiceImgUrl={gamerChoiceImgUrl}
           opponentChoiceImgUrl={opponentChoiceImgUrl}
+          onPlayAgain={onPlayAgain}
         />
       )}
     </GameBodyContainer>
