@@ -358,7 +358,7 @@ const GameView = props => {
 /* GameResult Component - Start */
 
 const GameResultView = props => {
-  const {result, gamerChoiceImgUrl, opponentChoiceImgUrl} = props
+  const {result, gamerChoiceImgUrl, opponentChoiceImgUrl, onPlayAgain} = props
 
   return (
     <GameResultViewContainer>
@@ -386,7 +386,7 @@ const GameResultView = props => {
 
       <GameResultContentContainer>
         <GameResult>{result}</GameResult>
-        <PlayAgainButton>Play Again</PlayAgainButton>
+        <PlayAgainButton onClick={onPlayAgain}>Play Again</PlayAgainButton>
       </GameResultContentContainer>
     </GameResultViewContainer>
   )
