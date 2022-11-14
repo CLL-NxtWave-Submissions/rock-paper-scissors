@@ -543,7 +543,10 @@ class RockPaperScissors extends Component {
     })
   }
 
-  onPlayAgain = () => this.setState({isNewGame: true})
+  onPlayAgain = () =>
+    this.setState({
+      isNewGame: true,
+    })
 
   render() {
     const {
