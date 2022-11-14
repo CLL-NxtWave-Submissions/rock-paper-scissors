@@ -395,7 +395,7 @@ const GameResultView = props => {
 
       <GameResultContentContainer>
         <GameResult>{result}</GameResult>
-        <PlayAgainButton onClick={onPlayAgain}>Play Again</PlayAgainButton>
+        <PlayAgainButton onClick={onPlayAgain}>PLAY AGAIN</PlayAgainButton>
       </GameResultContentContainer>
     </GameResultViewContainer>
   )
@@ -452,7 +452,7 @@ const GameRules = () => (
   <GameRulesContainer>
     <Popup
       modal
-      trigger={<GameRulesPopupTriggerButton>Rules</GameRulesPopupTriggerButton>}
+      trigger={<GameRulesPopupTriggerButton>RULES</GameRulesPopupTriggerButton>}
     >
       {close => (
         <GameRulesPopupContainer>
