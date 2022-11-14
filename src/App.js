@@ -520,6 +520,7 @@ class RockPaperScissors extends Component {
       const updatedScore = this.getUpdatedScore(score, currentGameOutcome)
 
       return {
+        gamerChoiceId: selectedGamerChoiceId,
         opponentRandomChoiceId: generatedOpponentChoiceId,
         gameOutcome: currentGameOutcome,
         isNewGame: false,
